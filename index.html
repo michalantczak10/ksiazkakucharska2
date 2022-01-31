@@ -13,7 +13,7 @@
     <div class="container">
 
         <h1 class="mb-4">Ostatnio dodane przepisy</h1>
-        
+
         <a href="/articles/new" class="btn btn-success">Nowy przepis</a>
 
         <div class="card mt-4">
@@ -23,13 +23,28 @@
                     Data dodania
                 </div>
                 <div class="card-text mb-2">Opis</div>
+
                 <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
-                <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+
+                <form action="add.php method="POST" class="d-inline">
+
+                    <p>Imię: <input type="text" id="tytul" name="tytul" maxlength="15" /></p>
+                    <p>Nazwisko: <input type="text" id="tresc" name="tresc" maxlength="20" /></p>
                     <button type="submit" class="btn btn-danger">Delete</button>
+
                 </form>
             </div>
         </div>
     </div>
+
+    <!-- <h1>Testowy formularz</h1>
+
+    <form enctype="multipart/form-data" action="add.php" method="post">
+        <p>Imię: <input type="text" id="tytul" name="tytul" maxlength="15" /></p>
+        <p>Nazwisko: <input type="text" id="tresc" name="tresc" maxlength="20" /></p>
+        <input type="submit" value="Wyślij" id="submit" />
+    </form> -->
+
 </body>
 
 </html>
