@@ -21,7 +21,7 @@ echo "Udało się połączyć z serwerem<br>";
 $selection = mysqli_select_db($connection, $database) or die('Błąd podczas połączenia z bazą danych<br> Błąd: ' . mysqli_error());
 echo "Udało się połączyć z bazą danych<br>";
 
-$id = $_POST[uniqid()];
+$id = microtime(true);
 $nazwa = $_POST['nazwa'];
 $krotki_opis = $_POST['krotki_opis'];
 

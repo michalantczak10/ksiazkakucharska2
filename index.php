@@ -13,46 +13,46 @@
 
     <?php
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "ksiazkakucharska";
+        $host = "localhost";
+        $user = "root";
+        $password = "";
+        $database = "ksiazkakucharska";
 
-$connection = mysqli_connect($host, $user, $password) or die('Błąd podczas łączenia z serwerem<br> Błąd: ' . mysqli_error());
-echo "Udało się połączyć z serwerem<br>";
-$selection = mysqli_select_db($connection, $database) or die('Błąd podczas łączenia z bazą danych<br> Błąd: ' . mysqli_error());
-echo "Udało się połączyć z bazą danych<br>";
-$wynik = $connection->query("SELECT * FROM przepisy") or die('Błąd podczas pobierania przepisów z dazy danych<br> Błąd: ' . mysqli_error());
+        $connection = mysqli_connect($host, $user, $password) or die('Błąd podczas łączenia z serwerem<br> Błąd: ' . mysqli_error());
+        // echo "Udało się połączyć z serwerem<br>";
+        $selection = mysqli_select_db($connection, $database) or die('Błąd podczas łączenia z bazą danych<br> Błąd: ' . mysqli_error());
+        // echo "Udało się połączyć z bazą danych<br>";
+        $wynik = $connection->query("SELECT * FROM przepisy") or die('Błąd podczas pobierania przepisów z dazy danych<br> Błąd: ' . mysqli_error());
 
-echo '<div class="container">';
-echo '<h1 class="mb-4">OSTATNIO DODANE PRZEPISY</h1>';
-echo '<a href="add.html" class="btn btn-success">DODAJ NOWY PRZEPIS</a>';
+        echo    '<div class="container">
+                    <h1 class="mb-4">OSTATNIO DODANE PRZEPISY</h1>
+                    <a href="add.html" class="btn btn-success">DODAJ NOWY PRZEPIS</a>';
 
-if ($wynik->num_rows > 0) {
-    while ($wiersz = $wynik->fetch_assoc()) {
-        echo '<div class="card mt-4">';
-        echo '<div class="card-body">';
-        echo '<h4 class="card-title">' . $wiersz["nazwa"] . '</h4>';
-        echo '<div class="card-subtitle text-muted mb-2">DATA DODANIA ' . $wiersz["data_dodania"] . '</div>';
-        echo '<div class="card-text mb-2">' . $wiersz["krotki_opis"] . '</div>';
-        echo '<a href="articles/<%= article.slug %>" class="btn btn-primary">WIĘCEJ SZCZEGÓŁÓW</a>';
-        echo '</div>';
-        echo '</div>';
-    }
-} else {
-    echo ("Brak przepisów w bazie danych");
-}
+                    if ($wynik->num_rows > 0) {
 
-echo '</div>';
+                        while ($wiersz = $wynik->fetch_assoc()) {
 
-// $tytul = $_POST['nazwa'];
-// $tresc = $_POST['skladniki'];
+                            echo    '<div class="card mt-4">
+                                        <div class="card-body">
+                                            <h4 class="card-title">NAZWA DANIA:' . $wiersz["nazwa"] . '</h4>
+                                            <div class="card-subtitle text-muted mb-2">DATA I GODZINA DODANIA PRZEPISU: ' . $wiersz["data_dodania"] . '</div>
+                                            <div class="card-text mb-2">' . $wiersz["krotki_opis"] . '</div>
+                                            <a href="articles/<%= article.slug %>" class="btn btn-primary">WIĘCEJ SZCZEGÓŁÓW</a>
+                                        </div>
+                                    </div>';
+                        
+                        }
 
-// $sql = mysqli_query($connection, "INSERT INTO przepisy SET nazwa='$tytul', skladniki='$tresc'") or die('Błąd podczas dodawania przepisu do bazy danych');
-// echo "Udało się pomyślnie dodać przepis do bazy danych<br>";
+                    } else {
+
+                            echo    '<h4 class="card-title">Brak przepisów w bazie danych</h4>';
+
+                    }
+
+        echo    '</div>';
 
 $disconnection = mysqli_close($connection) or die('Błąd podczas rozłączania z serwerem<br> Błąd: ' . mysqli_error());
-echo "Udało się rozłączyć z serwerem<b>"
+// echo "Udało się rozłączyć z serwerem<b>"
 
 ?>
 
