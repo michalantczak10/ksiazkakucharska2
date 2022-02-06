@@ -17,31 +17,37 @@ $password = "";
 $database = "ksiazkakucharska";
 
 $connection = mysqli_connect($host, $user, $password) or die('Błąd podczas połączenia z serwerem<br> Błąd: ' . mysqli_error());
-echo "Udało się połączyć z serwerem<br>";
+// echo "Udało się połączyć z serwerem<br>";
 $selection = mysqli_select_db($connection, $database) or die('Błąd podczas połączenia z bazą danych<br> Błąd: ' . mysqli_error());
-echo "Udało się połączyć z bazą danych<br>";
+// echo "Udało się połączyć z bazą danych<br>";
 
 $id = microtime(true);
 $nazwa = $_POST['nazwa'];
 $krotki_opis = $_POST['krotki_opis'];
 
 $sql = mysqli_query($connection, "INSERT INTO przepisy SET id='$id', nazwa='$nazwa', krotki_opis='$krotki_opis'") or die('Błąd podczas dodawania przepisu do bazy danych');
-echo "Udało się pomyślnie dodać przepis do bazy danych<br>";
+// echo "Udało się pomyślnie dodać przepis do bazy danych<br>";
 $disconnection = mysqli_close($connection) or die('Błąd podczas rozłączania z serwerem<br> Błąd: ' . mysqli_error());
-echo 'Udało się rozłączyć z serwerem<b>
-    <div class="container">
+
+echo 
+
+<div class="container">
 
         <h1 class="mb-4">OSTATNIO DODANE PRZEPISY</h1>
-
-        <a href="add.html" class="btn btn-success">DODAJ NOWY PRZEPIS</a>
 
         <div class="card mt-4">
 
             <div class="card-body">
                 <h4 class="card-title">PRZEPIS ZOSTAŁ POMYŚLNIE DODANY</h4>
+                <a href="index.php" class="btn btn-success">POWRÓT DO LISTY NAJNOWSZYCH PRZEPISÓW</a>
+                <a href="add.html" class="btn btn-danger">DODAJ KOLEJNY PRZEPIS</a>
             </div>
         </div>
 
-    </div>'
+    </div>';
 
 ?>
+
+<!-- echo 'Udało się rozłączyć z serwerem<b>' -->
+
+

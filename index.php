@@ -57,4 +57,5 @@ $disconnection = mysqli_close($connection) or die('Błąd podczas rozłączania 
 ?>
 
 </body>
+
 </html>
