@@ -9,7 +9,8 @@
     <title>Książka kucharska</title>
 </head>
 
-<?php
+<body>
+    <?php
 
 $host = "localhost";
 $user = "root";
@@ -29,7 +30,7 @@ $sql = mysqli_query($connection, "INSERT INTO przepisy SET id='$id', nazwa='$naz
 // echo "Udało się pomyślnie dodać przepis do bazy danych<br>";
 $disconnection = mysqli_close($connection) or die('Błąd podczas rozłączania z serwerem<br> Błąd: ' . mysqli_error());
 
-echo 
+echo ' 
 
 <div class="container">
 
@@ -48,6 +49,6 @@ echo
 
 ?>
 
+</body>
+
 <!-- echo 'Udało się rozłączyć z serwerem<b>' -->
-
-
