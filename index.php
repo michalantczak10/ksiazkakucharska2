@@ -25,7 +25,7 @@
         $wynik = $connection->query("SELECT * FROM przepisy") or die('Błąd podczas pobierania przepisów z dazy danych<br> Błąd: ' . mysqli_error());
 
         echo '
-        
+
             <div class="container">
                 <h1 class="mb-4">OSTATNIO DODANE PRZEPISY</h1>
                 <a href="add.html" class="btn btn-success">DODAJ NOWY PRZEPIS</a>
@@ -36,7 +36,7 @@
                     while ($wiersz = $wynik->fetch_assoc()) {
 
                         echo '
-                    
+
                             <div class="card mt-4">
                                 <div class="card-body">
                                     <h4 class="card-title">NAZWA DANIA:' . $wiersz["nazwa"] . '</h4>
@@ -45,19 +45,19 @@
                                     <a href="articles/<%= article.slug %>" class="btn btn-primary">WIĘCEJ SZCZEGÓŁÓW</a>
                                 </div>
                             </div>';
-                        
+
                         }
 
                     } else {
 
                         echo '
-                        
+
                             <h4 class="card-title">Brak przepisów w bazie danych</h4>';
 
                         }
 
         echo '
-                    
+
             </div>';
 
         $disconnection = mysqli_close($connection) or die('Błąd podczas rozłączania z serwerem<br> Błąd: ' . mysqli_error());
