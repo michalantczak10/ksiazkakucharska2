@@ -10,10 +10,12 @@
 </head>
 
 <body>
-    <?php
 
-$host = "localhost";
-$user = "root";
+
+<?php
+
+$host     = "localhost";
+$user     = "root";
 $password = "";
 $database = "ksiazkakucharska";
 
@@ -22,15 +24,15 @@ $connection = mysqli_connect($host, $user, $password) or die('Błąd podczas po�
 $selection = mysqli_select_db($connection, $database) or die('Błąd podczas połączenia z bazą danych<br> Błąd: ' . mysqli_error());
 // echo "Udało się połączyć z bazą danych<br>";
 
-$id = microtime(true);
-$nazwa = $_POST['nazwa'];
+$id          = microtime(true);
+$nazwa       = $_POST['nazwa'];
 $krotki_opis = $_POST['krotki_opis'];
 
 $sql = mysqli_query($connection, "INSERT INTO przepisy SET id='$id', nazwa='$nazwa', krotki_opis='$krotki_opis'") or die('Błąd podczas dodawania przepisu do bazy danych');
 // echo "Udało się pomyślnie dodać przepis do bazy danych<br>";
 $disconnection = mysqli_close($connection) or die('Błąd podczas rozłączania z serwerem<br> Błąd: ' . mysqli_error());
 
-echo ' 
+echo '
 
 <div class="container">
 
@@ -49,6 +51,6 @@ echo '
 
 ?>
 
-</body>
+    </body>
 
-<!-- echo 'Udało się rozłączyć z serwerem<b>' -->
+</html>

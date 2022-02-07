@@ -39,7 +39,7 @@
 
                             <div class="card mt-4">
                                 <div class="card-body">
-                                    <h4 class="card-title">NAZWA DANIA:' . $wiersz["nazwa"] . '</h4>
+                                    <h4 class="card-title">' . $wiersz["nazwa"] . '</h4>
                                     <div class="card-subtitle text-muted mb-2">DATA I GODZINA DODANIA PRZEPISU: ' . $wiersz["data_dodania"] . '</div>
                                     <div class="card-text mb-2">' . $wiersz["krotki_opis"] . '</div>
                                     <a href="articles/<%= article.slug %>" class="btn btn-primary">WIĘCEJ SZCZEGÓŁÓW</a>
